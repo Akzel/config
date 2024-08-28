@@ -1,6 +1,6 @@
 .PHONY: switch
 switch:
-	nixos-rebuild switch --flake .#Hisoka
+	sudo nixos-rebuild switch --flake .#Hisoka
 
 .PHONY: clean
 clean:

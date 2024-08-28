@@ -61,10 +61,10 @@
   	hostName = "Hisoka";
 	networkmanager.enable = true;
   };
-#  boot.loader = {
-#	systemd-boot.enable = true;
-#	efi.canTouchEfiVariables = true;
-#};
+  boot.loader = {
+	systemd-boot.enable = true;
+	efi.canTouchEfiVariables = true;
+};
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -96,9 +96,6 @@
   hardware.bluetooth.powerOnBoot = true;
 
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 security.rtkit.enable = true;
 services.pipewire = {
   enable = true;
