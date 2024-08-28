@@ -51,7 +51,6 @@
     make
     kitty
     qutebrowser
-    i3status-rust
   ];
 
   programs.sway = {

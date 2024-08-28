@@ -1,11 +1,11 @@
-.PHONY: update
+.PHONY: switch
 switch:
-	nixos-rebuild --flake switch .#Hisoka
+	nixos-rebuild switch --flake .#Hisoka
 
 .PHONY: clean
 clean:
 	nix-collect-garbage -d
 
 .PHONY: build
-update:
+build:
 	nixos-rebuild build --flake .#Hisoka
