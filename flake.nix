@@ -7,7 +7,7 @@
   		nixosConfigurations.Hisoka = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
-				self.realpath ./configuration.nix	
+				./configuration.nix	
 			];
 		};
 	};
