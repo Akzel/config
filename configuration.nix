@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... } : {
 	imports = [ ./hardware-configuration.nix ];
 	nixpkgs.config.allowUnfree = true;
-	settings.experimental-features = "nix-command flakes";
+	nix.settings.experimental-features = "nix-command flakes";
  	networking.hostName = "Hisoka";
 	networking.networkmanager.enable = true;
 	boot.loader.systemd-boot.enable = true;
