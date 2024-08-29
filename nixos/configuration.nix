@@ -55,16 +55,16 @@
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
+  	};
 
   networking = {
   	hostName = "Hisoka";
 	networkmanager.enable = true;
-  };
+	  };
   boot.loader = {
 	systemd-boot.enable = true;
 	efi.canTouchEfiVariables = true;
-};
+	};
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -82,14 +82,14 @@
     LC_PAPER = "nl_NL.UTF-8";
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
-  };
+  	};
 #  services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   users.users.axel = {
       description = "Axel";#?
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager" "audio" "video"];
-  };
+  	};
 
 ## maybe
   hardware.bluetooth.enable= true;
@@ -104,8 +104,10 @@ services.pipewire = {
   pulse.enable = true;
   # If you want to use JACK applications, uncomment this
   #jack.enable = true;
-};
+environment.systemPackages = with pkgs [
+	git
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
-}
+};
