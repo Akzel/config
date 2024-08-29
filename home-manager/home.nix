@@ -53,10 +53,6 @@
     qutebrowser
   ];
 
-  programs.sway = {
-  	enable = true;
-	  wrapperFeatures.gtk = true;
-  };
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
