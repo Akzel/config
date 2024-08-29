@@ -39,10 +39,8 @@
     };
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
+  nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in { settings = {
       experimental-features = "nix-command flakes";
       # Opinionated: disable global registry
       flake-registry = "";
@@ -51,7 +49,6 @@
     };
     # Opinionated: disable channels
     channel.enable = false;
-
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
@@ -61,51 +58,46 @@
   	hostName = "Hisoka";
 	networkmanager.enable = true;
 	  };
+
   boot.loader = {
 	systemd-boot.enable = true;
 	efi.canTouchEfiVariables = true;
 	};
 
   time.timeZone = "Europe/Amsterdam";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  console.keyMap = "us";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "nl_NL.UTF-8";
-    LC_IDENTIFICATION = "nl_NL.UTF-8";
-    LC_MEASUREMENT = "nl_NL.UTF-8";
-    LC_MONETARY = "nl_NL.UTF-8";
-    LC_NAME = "nl_NL.UTF-8";
-    LC_NUMERIC = "nl_NL.UTF-8";
-    LC_PAPER = "nl_NL.UTF-8";
-    LC_TELEPHONE = "nl_NL.UTF-8";
-    LC_TIME = "nl_NL.UTF-8";
-  	};
+  i18n = {
+	defaultLocale = "en_US.UTF-8";
+	extraLocaleSettings = {
+    		LC_ADDRESS = "nl_NL.UTF-8";
+		LC_IDENTIFICATION = "nl_NL.UTF-8";
+    		LC_MEASUREMENT = "nl_NL.UTF-8";
+	    	LC_MONETARY = "nl_NL.UTF-8";
+	    	LC_NAME = "nl_NL.UTF-8";
+	    	LC_NUMERIC = "nl_NL.UTF-8";
+	    	LC_PAPER = "nl_NL.UTF-8";
+    		LC_TELEPHONE = "nl_NL.UTF-8";
+    		LC_TIME = "nl_NL.UTF-8";
+  		};
 #  services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   users.users.axel = {
-      description = "Axel";#?
+      description = "Axel";
       isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager" "audio" "video"];
-  	};
+      extraGroups = ["wheel" "networkmanager" "audio" "video"];};
+   
+   programs = {
+	git.enable = true;
+	nvim.enable = true;
+	sway = {
+		enable = true;
+		wrapperFeatures.gtk = true;
+		};
+	};
 
-## maybe
-  hardware.bluetooth.enable= true;
-  hardware.bluetooth.powerOnBoot = true;
-
-
-security.rtkit.enable = true;
-services.pipewire = {
-  enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  pulse.enable = true;
-  # If you want to use JACK applications, uncomment this
-  #jack.enable = true;
-environment.systemPackages = with pkgs [
-	git
+  environment.systemPackages = with pkgs [
+	grim
+	wl-clipboard
+	mako
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
