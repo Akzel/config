@@ -30,6 +30,7 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 			gnumake
 			stow
 			neovim
+			dunst
 			htop
 			neofetch
 			bitwarden

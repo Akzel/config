@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 {
-	hardware.graphics.enable =true;
+	hardware.graphics.enable = true;
 	services.xserver.videoDrivers = [ "nvidia" ];
 	hardware.nvidia = {
 		modesetting.enable = true;
@@ -15,7 +15,6 @@
 		mpv
 		obs-studio
 		egl-wayland
-		libva
 	];
 	programs = {
 		steam = {
