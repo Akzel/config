@@ -14,6 +14,7 @@
         modules = [ 
           ./gamer.nix
           ./configuration.nix	
+	  ./hw-hisoka.nix
           {
             networking.hostName = "Hisoka";
           } 
@@ -24,8 +25,9 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [ 
-          ./configuration.nix{
-
+          ./configuration.nix
+	  ./hw-killua.nix
+	  {
             networking.hostName = "Killua";
           }
         ];
