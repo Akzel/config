@@ -3,16 +3,17 @@ Working on two computers so far!
 
 to use, clone whereever, 
 `nix-shell -p stow gnumake`
-`stow hypr` or many `stow hypr kitty`
 
-`nixos-generate-config` to get hw config
+one: `stow hypr`\
+or many: `stow hypr kitty`
+
+`nixos-generate-config` to get hw config\
 `cp /etc/nixos/hardware-configuarion.nix {hw-whatever,nix}`
 
 Remember flakes need to have everything in the git to work
 soooo `git add .`
 
- and finally... assuming everything is good.. `make hisoka`/`make killua`
- .
- .
- .
- profit?
+ and finally... assuming everything is good..\
+ `make hisoka`/`make killua`
+ 
+ ....profit?
