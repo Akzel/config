@@ -1,9 +1,7 @@
-{ config, lib, pkgs, ... } : { imports = [ ./hardware-configuration.nix ]; nixpkgs.config.allowUnfree = true; nix.settings.experimental-features = 
-	"nix-command flakes"; networking.hostName = "Hisoka"; networking.networkmanager.enable = true; boot.loader.systemd-boot.enable = true; 
-	boot.loader.efi.canTouchEfiVariables = true; security.polkit.enable = true;
-
-#"caps:swapescape";
-
+{ config, lib, pkgs, inputs, ... } : { imports = [ ./hardware-configuration.nix ]; nixpkgs.config.allowUnfree = true; nix.settings.experimental-features = "nix-command flakes";  networking.networkmanager.enable = true; boot.loader.systemd-boot.enable = true;boot.loader.efi.canTouchEfiVariables = true; security.polkit.enable = true;
+	networking.hostName = "Hisoka";
+	hardware.bluetooth.enable = true; 
+	hardware.bluetooth.powerOnBoot = true;
 	services.pipewire = { enable = true; pulse.enable = true;};
 	services.greetd = {
 		enable = true;
@@ -25,18 +23,24 @@
 	};
 
 #services.gnome.gnome-keyring.enable = true; 
-	users.users.axel = { isNormalUser = true; extraGroups = ["wheel" "networkmanager"];
+	users.users.axel = { isNormalUser = true; extraGroups = ["wheel" "networkmanager" "audio" "video"];
 	};
 
 	environment.systemPackages = with pkgs ; [
 		kitty
-		git
-		qutebrowser
-		gnumake
-		neovim
-		htop
-		neofetch	
-		hyprpaper
+			git
+			qutebrowser
+			firefox
+			gnumake
+			stow
+			neovim
+			htop
+			neofetch
+			bitwarden
+			wofi
+			hyprpaper
+			hyprcursor
+			inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
 	];
 	system.stateVersion = "24.11"; # Did you read the comment?
-			     }
+				     }
