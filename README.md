@@ -4,8 +4,9 @@ Working on two computers so far!
 to use, clone whereever, 
 `nix-shell -p stow gnumake`
 
-one: `stow hypr`\
-or many: `stow hypr kitty`
+`cd dots`\
+all: `stow . -t ~/.config/`\
+or some: `stow hypr kitty -t ~/.config/`
 
 `nixos-generate-config` to get hw config\
 `cp /etc/nixos/hardware-configuarion.nix {hw-whatever,nix}`
