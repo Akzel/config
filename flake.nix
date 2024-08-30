@@ -14,7 +14,7 @@
         modules = [ 
           ./gamer.nix
           ./configuration.nix	
-	  ./hw-hisoka.nix
+          ./hw-hisoka.nix
           {
             networking.hostName = "Hisoka";
           } 
@@ -26,7 +26,7 @@
         system = "x86_64-linux";
         modules = [ 
           ./configuration.nix
-	  ./hw-killua.nix
+      	  ./hw-killua.nix
 	  {
             networking.hostName = "Killua";
           }
