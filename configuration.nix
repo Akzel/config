@@ -19,6 +19,7 @@ nixpkgs.config.allowUnfree = true; nix.settings.experimental-features = "nix-com
 	programs.hyprland.enable = true;
 
 
+time.timeZone = "Europe/Amsterdam";
 
 services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this?? 
 	users.users.axel = { isNormalUser = true; extraGroups = ["wheel" "networkmanager" "audio" "video"];
