@@ -3,7 +3,7 @@ hisoka:
 	sudo nixos-rebuild switch --flake .#Hisoka
 
 .PHONY: killua
-hisoka:
+killua:
 	sudo nixos-rebuild switch --flake .#Killua
 
 .PHONY: clean
