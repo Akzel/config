@@ -13,6 +13,7 @@
 
 	environment.systemPackages = with pkgs; [
 		mpv
+		discord
 		obs-studio
 		egl-wayland
 	];

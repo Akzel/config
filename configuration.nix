@@ -29,6 +29,7 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 		kitty
 			git
 			gh
+			eww
 			qutebrowser
 			firefox
 			gnumake
