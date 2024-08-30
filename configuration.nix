@@ -1,5 +1,4 @@
 { config, lib, pkgs, inputs, ... } : { imports = [ ./hardware-configuration.nix ]; nixpkgs.config.allowUnfree = true; nix.settings.experimental-features = "nix-command flakes";  networking.networkmanager.enable = true; boot.loader.systemd-boot.enable = true;boot.loader.efi.canTouchEfiVariables = true; security.polkit.enable = true;
-	networking.hostName = "Hisoka";
 	hardware.bluetooth.enable = true; 
 	hardware.bluetooth.powerOnBoot = true;
 	services.pipewire = { enable = true; pulse.enable = true;};
