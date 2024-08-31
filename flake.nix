@@ -2,7 +2,6 @@
   description = "Akzel nixos config yuhh";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   outputs = { self, nixpkgs, ...} @inputs:
@@ -15,7 +14,7 @@
           ./mods/gamer.nix
 	  ./mods/hackerman.nix
           ./mods/configuration.nix	
-          ./mods/hw-hisoka.nix
+          ./hwcfgs/hw-hisoka.nix
           {
             networking.hostName = "Hisoka";
           } 
@@ -28,7 +27,7 @@
         modules = [ 
           ./mods/configuration.nix
 	  ./mods/hackerman.nix
-      	  ./mods/hw-killua.nix
+      	  ./hwcfgs/hw-killua.nix
 	  {
             networking.hostName = "Killua";
           }
