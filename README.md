@@ -10,6 +10,8 @@ to use, clone whereever,
 all: `stow . -t ~/.config/`\
 or some: `stow hypr kitty -t ~/.config/`
 
+note `.zshrc` goes to `~/` instead 🤷‍♂️
+
 `nixos-generate-config` to get hw config\
 `cp /etc/nixos/hardware-configuarion.nix {hw-whatever,nix}`
 
