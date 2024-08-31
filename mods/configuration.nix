@@ -24,7 +24,6 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 	};
 
 	environment.systemPackages = with pkgs ; [
-		waybar
 		# TODO:	eww
 		qutebrowser
 		firefox
