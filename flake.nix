@@ -12,9 +12,10 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [ 
-          ./gamer.nix
-          ./configuration.nix	
-          ./hw-hisoka.nix
+          ./mods/gamer.nix
+	  ./mods/hackerman.nix
+          ./mods/configuration.nix	
+          ./mods/hw-hisoka.nix
           {
             networking.hostName = "Hisoka";
           } 
@@ -25,8 +26,9 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [ 
-          ./configuration.nix
-      	  ./hw-killua.nix
+          ./mods/configuration.nix
+	  ./mods/hackerman.nix
+      	  ./mods/hw-killua.nix
 	  {
             networking.hostName = "Killua";
           }
