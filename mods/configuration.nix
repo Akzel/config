@@ -24,17 +24,29 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 	};
 
 	environment.systemPackages = with pkgs ; [
-		# TODO:	eww
 		qutebrowser
 		firefox
 		gnumake
 		stow
 		dunst
+		
 		htop
 		neofetch
 		bitwarden
 		wofi
 		hyprpaper
+	
+		#hyprpanel deps
+grimblast
+gpu-screen-recorder
+hyprpicker
+btop
+networkmanager
+matugen
+wl-clipboard
+dart-sass
+brightnessctl
+
 	];
 	system.stateVersion = "24.11"; # Did you read the comment?
 				     }

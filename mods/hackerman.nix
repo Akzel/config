@@ -9,6 +9,7 @@
 	environment.systemPackages = with pkgs; [
 		kitty
 		git
+		lazygit
 		gh
 		neovim
 		unzip
