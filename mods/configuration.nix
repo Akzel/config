@@ -30,6 +30,7 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 		stow
 		dunst
 		
+		ncspot
 		htop
 		neofetch
 		bitwarden
