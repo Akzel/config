@@ -23,30 +23,26 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 	users.users.axel = { isNormalUser = true; extraGroups = ["wheel" "networkmanager" "audio" "video"];
 	};
 
+	security.sudo.wheelNeedsPassword = false;
 	environment.systemPackages = with pkgs ; [
 		qutebrowser
 		firefox
 		gnumake
 		stow
 		dunst
-		
+		spotify
 		ncspot
-		htop
 		neofetch
 		bitwarden
 		wofi
 		hyprpaper
-	
-		#hyprpanel deps
-grimblast
+		rustup
+		coppwr
 gpu-screen-recorder
 hyprpicker
 btop
 networkmanager
-matugen
 wl-clipboard
-dart-sass
-brightnessctl
 
 	];
 	system.stateVersion = "24.11"; # Did you read the comment?
