@@ -14,7 +14,10 @@ nixpkgs.config.allowUnfree = true; nix.settings.experimental-features = "nix-com
 	};
 
 
-	programs.hyprland.enable = true;
+	programs.hyprland = {
+		enable = true;
+		xwayland.enable = true;
+	}
 
 
 time.timeZone = "Europe/Amsterdam";
@@ -36,8 +39,10 @@ services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
 		bitwarden
 		wofi
 		hyprpaper
+		waybar
 		rustup
 		coppwr
+		zoom-us
 gpu-screen-recorder
 hyprpicker
 btop
