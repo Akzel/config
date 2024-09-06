@@ -1,7 +1,5 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs,  ... }:
 {
-
-
 	fonts.packages = with pkgs; [
 		nerdfonts
 	];
@@ -18,6 +16,11 @@
 		fd
 		oh-my-zsh
 		tealdeer
+
+		nil
+		lua-language-server
+		stylua
+		luajitPackages.luacheck
 	];
 	users.users.axel.shell = pkgs.zsh;
 	programs = {

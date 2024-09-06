@@ -1,8 +1,9 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.opt.number= true
-vim.opt.relativenumber= true
-vim.opt.mouse = 'a'
+vim.g.mapleader = " "
+
+vim.g.japlocalleader = " "
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 -- Enable break indent
@@ -27,10 +28,10 @@ vim.opt.splitbelow = false
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = false
@@ -39,24 +40,42 @@ vim.opt.cursorline = false
 vim.opt.scrolloff = 15
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 --  Use CTRL+<hjkl> to switch between windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', {})
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', {})
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', {})
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', {})
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", {})
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", {})
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", {})
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {})
 
 -- [[ Basic Autocommands ]]
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 require("config.lazy")
-
--- The line beneath this is called `modeline`. See `:help modeline`
+require("lsp-format").setup {}
+require 'lspconfig'.lua_ls.setup {
+	on_init = function(client)
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+			runtime = {
+				version = 'LuaJIT'
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+				}
+			}
+		})
+	end,
+	on_attach = require("lsp-format").on_attach,
+	settings = {
+		Lua = {}
+	}
+}
 -- vim: ts=2 sts=2 sw=2 et

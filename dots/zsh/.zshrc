@@ -1,5 +1,5 @@
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+export MANPAGER='nvim +Man!'
 export ZSH=$HOME/config/dots/oh-my-zsh ZSH_THEME="powerlevel10k/powerlevel10k"
 HYPHEN_INSENSITIVE="true"
 
