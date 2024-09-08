@@ -58,24 +58,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 require("config.lazy")
-require("lsp-format").setup {}
-require 'lspconfig'.lua_ls.setup {
-	on_init = function(client)
-		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-			runtime = {
-				version = 'LuaJIT'
-			},
-			workspace = {
-				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME
-				}
-			}
-		})
-	end,
-	on_attach = require("lsp-format").on_attach,
-	settings = {
-		Lua = {}
-	}
-}
+
 -- vim: ts=2 sts=2 sw=2 et
