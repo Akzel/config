@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
-
-vim.g.japlocalleader = " "
+vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
