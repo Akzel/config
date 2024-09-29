@@ -4,12 +4,12 @@ return {
 		require('mini.ai').setup { n_lines = 500 }
 		require('mini.surround').setup()
 		require('mini.files').setup {
-			opts = {
-				windows = {
-					preview = true,
-					width_focus = 30,
-					width_preview = 30,
-				},
+			windows = {
+				preview = true,
+				max_number = 2,
+				width_focus = 30,
+				width_nofocus = 10,
+				width_preview = 70,
 			},
 			vim.keymap.set('n','-', function(...)
 				if not MiniFiles.close() then MiniFiles.open(...) end
@@ -18,8 +18,5 @@ return {
 
 	local statusline = require 'mini.statusline'
 	statusline.setup { use_icons = vim.g.have_nerd_font }
-	statusline.section_location = function()
-		return '%2l:%-2v'
-	end
-end,
+	end,
 }
