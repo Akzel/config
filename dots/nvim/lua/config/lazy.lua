@@ -2,7 +2,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=latest", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -20,16 +20,15 @@ vim.g.maplocalleader = " "
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  { 'rebelot/kanagawa.nvim', priority = 1000,
+  { 'nyngwang/nvimgelion', priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'kanagawa'
+      vim.cmd.colorscheme 'nvimgelion'
     end,
   },
-  { import = "plugins" },
-  install = { colorscheme = { "kanagawa" } },
+  install = { colorscheme = "nvimgelion" },
   checker = { enabled = true },
 
   {'tpope/vim-sleuth' }, 
   { 'lewis6991/gitsigns.nvim' },
-  { 'folke/which-key.nvim', },
+  { import = "plugins" },
 })
