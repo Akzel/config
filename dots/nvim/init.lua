@@ -36,13 +36,11 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 5
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
---  Use CTRL+<hjkl> to switch between windows
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", {})
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", {desc = "clear search"})
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", {desc = ''})
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", {})
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", {})
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {})
