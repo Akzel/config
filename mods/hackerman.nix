@@ -17,17 +17,20 @@
 
     alejandra
 
+    rustc
+    cargo
+
     lua
     nil
     luarocks
     lua-language-server
     stylua
     luajitPackages.luacheck
-  ];
-  users.users.axel.shell = pkgs.zsh;
+    ];
+  users.users.axel.shell = pkgs.fish;
   programs = {
-    zsh = {
+    fish = {
       enable = true;
     };
   };
-}
+             }
