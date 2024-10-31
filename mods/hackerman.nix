@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     kitty
+    arp-scan
     git
     lazygit
     gh
@@ -14,6 +15,7 @@
     ripgrep
     fd
     tealdeer
+    android-tools
 
     alejandra
 
@@ -29,7 +31,9 @@
     lua-language-server
     stylua
     luajitPackages.luacheck
-    ];
+    marksman
+    taplo
+  ];
   users.users.axel.shell = pkgs.fish;
   programs = {
     fish = {

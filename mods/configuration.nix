@@ -43,6 +43,7 @@
     dunst
     spotify
     wofi
+    hyprshot
     hyprpaper
     rustup
     zoom-us
