@@ -86,11 +86,12 @@ bindsym $mod+Shift+J+Ctrl resize grow height 5ppt
 bindsym $mod+Shift+K+Ctrl resize shrink height 5ppt
 bar {
     position top
-    # mode hide
-    separator_symbol "-"
-    status_command while date +'%a-%b-%d %H:%M:%S'; do sleep 1; done
-    colors {
-        statusline #ffffff
-            background #323232
-            inactive_workspace #32323200 #32323200 #5c5c5c }
+# mode hide
+        separator_symbol "-"
+        status_command i3status 
+        colors {
+            statusline #ffffff
+                background #323232
+                inactive_workspace #32323200 #32323200 #5c5c5c 
+        }
 }
