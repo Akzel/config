@@ -88,7 +88,7 @@ bar {
     position top
 # mode hide
         separator_symbol "-"
-        status_command i3status 
+        status_command /run/current-system/sw/bin/i3status-rs ~/config/dots/sway/status.toml
         colors {
             statusline #ffffff
                 background #323232
