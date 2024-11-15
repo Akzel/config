@@ -15,20 +15,21 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd sway";
         user = "greeter";
       };
     };
   };
 
-  programs.hyprland = {
+  services.gnome.gnome-keyring.enable = true;
+
+  programs.sway = {
     enable = true;
-    xwayland.enable = true;
+    wrapperFeatures.gtk = true;
   };
 
   time.timeZone = "Europe/Amsterdam";
 
-  services.gnome.gnome-keyring.enable = true; # fauwefojawioefjw was it this??
   users.users.axel = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "audio" "video"];
@@ -43,8 +44,6 @@
     dunst
     spotify
     wofi
-    hyprshot
-    hyprpaper
     rustup
     zoom-us
     gpu-screen-recorder
@@ -52,6 +51,7 @@
     networkmanager
     wl-clipboard
     bat
+
   ];
   system.stateVersion = "24.11"; # Did you read the comment?
 }
