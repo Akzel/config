@@ -1,25 +1,11 @@
-# ~/.config/sway/config
-
-######################################
-### BASIC SETTINGS AND APPEARANCE ###
-######################################
-set $mod Mod4                 # Modifier key (Super/Windows)
-set $terminal kitty           # Terminal emulator
-set $fileManager dolphin      # File manager
-set $menu wofi --show drun    # Application launcher
-
+set $mod alt
+set $terminal kitty
+set $fileManager dolphin
+set $menu wofi --show drun
 default_border pixel 1        # Default border style
 hide_edge_borders smart
 default_floating_border pixel 1
-
-####################################
-### OUTPUT (MONITOR CONFIGURATION) ###
-####################################
 output DP-2 resolution 2560x1440@165Hz position 0 0
-
-####################################
-### ENVIRONMENT VARIABLES ###
-####################################
 exec export EDITOR=nvim
 exec export LIBVA_DRIVER_NAME=nvidia
 exec export XDG_SESSION_TYPE=wayland
@@ -28,44 +14,26 @@ exec export __GLX_VENDOR_LIBRARY_NAME=nvidia
 exec --no-startup-id env __GLX_VENDOR_LIBRARY_NAME=nvidia
 exec --no-startup-id env __GL_SYNC_ALLOWED=1
 exec --no-startup-id env __GL_GSYNC_ALLOWED=1
-
-###########################
-### INPUT CONFIGURATION ###
-###########################
 input * {
     xkb_layout us,is
     xkb_options grp:alt_shift_toggle,caps:escape
     natural_scroll disabled
     pointer_accel 0
 }
-
-######################
-### KEYBINDINGS ###
-######################
-### Application Launchers ###
 bindsym $mod+Return exec $terminal      # Launch terminal
-bindsym $mod+E exec $fileManager        # Launch file manager
 bindsym $mod+D exec $menu               # Launch application menu
 bindsym $mod+W exec firefox             # Launch browser
-
-### Window Management ###
 bindsym $mod+F fullscreen toggle        # Toggle fullscreen
 bindsym $mod+Shift+Q kill               # Close focused window
 bindsym $mod+Shift+Space floating toggle # Toggle floating mode
-
-### Focus Movement ###
 bindsym $mod+H focus left
 bindsym $mod+L focus right
 bindsym $mod+J focus down
 bindsym $mod+K focus up
-
-### Window Movement ###
 bindsym $mod+Shift+H move left
 bindsym $mod+Shift+L move right
 bindsym $mod+Shift+J move down
 bindsym $mod+Shift+K move up
-
-# Workspace bindings
 set $workspaces 1 2 3 4 5 6 7 8 9 10
 for_window [class="^.*"] workspace auto_back_and_forth
 exec_always {
@@ -74,13 +42,9 @@ exec_always {
         bindsym $mod+Shift+$i move container to workspace number $i
     }
 }
-
-# Volume controls
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-
-### Mouse Bindings ###
 mode "resize" {
     bindsym Left resize shrink width 10px
     bindsym Right resize grow width 10px
@@ -90,4 +54,3 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"  # Enter resize mode
-

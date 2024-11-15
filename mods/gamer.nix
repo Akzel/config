@@ -1,14 +1,7 @@
 {pkgs, ...}: {
   hardware = {
     graphics.enable = true;
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      open = false;
-      powerManagement.finegrained = false;
-    };
   };
-  services.xserver.videoDrivers = ["nvidia"];
 
   environment.systemPackages = with pkgs; [
     efibootmgr
