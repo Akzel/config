@@ -7,7 +7,7 @@
     kitty
     arp-scan
     git
-    npm
+    bash-language-server
     lazygit
     gh
     neovim
